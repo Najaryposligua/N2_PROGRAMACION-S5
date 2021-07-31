@@ -1,1 +1,54 @@
+from Calculadora import *
+from Cadena import *
 
+class MENU():
+    def __init__(self,titulo,opciones=[]):
+        self.titulo=titulo
+        self.opciones=opciones
+
+    def menu(self):
+        print(self.titulo)
+        for opcion in self.opciones:
+            print(opcion)
+
+        opc=input("Elije opcion [1.....{}]: ".format(len(self.opciones)))
+        return opc
+salir=False
+
+while not salir:
+    menu1 = MENU("---Menu Principal--- ",["1)Calculadora", "2)Operación de Numeros", "3)Tratamientos de Listas", "4)Operaciones de Cadenas","5)Salir"])
+    opc = menu1.menu()
+    if opc=="1":
+
+        while not salir:
+            menu2 = MENU("**Menu Calculadora**", ["1)Suma", "2)Resta", "3)Multiplicacion", "4)Division", "5)Exponente","6)Valor Absoluto", "7)Circunferencia", "8)Area Circulo", "9)Area Cuadrado", "10)Salir"])
+            opc2 = menu2.menu()
+            cal= Calculadora(0,0)
+            cale = calEstandar(0)
+            calCi = calCientifica(0, 0)
+            if opc2 == "1":
+                cal.suma()
+            elif opc2 == "2":
+                cal.resta()
+            elif opc2 == "3":
+                cal.multiplicacion1()
+            elif opc2 == "4":
+                cal.division()
+            elif opc2 == "5":
+                cale.exponente()
+            elif opc2 == "6":
+                cale.valorAbsoluto()
+            elif opc2 == "7":
+                calCi.circunferencia()
+            elif opc2 == "8":
+                calCi.areaCirculo()
+            elif opc2 == "9":
+                calCi.areaCuadrado()
+            elif opc2 == "10":
+                print("Regresando al menú principal........")
+                salir = True
+            else:
+                print("Ingreso mal la opcion")
+
+                opc2 = menu2.menu()
+        salir=False
