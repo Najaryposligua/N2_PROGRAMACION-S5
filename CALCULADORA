@@ -1,1 +1,68 @@
+class Calculadora:
+    def __init__(self, numero1=0, numero2=0):
+        self.numero1 = numero1
+        self.numero2 = numero2
 
+    def suma(self):
+        self.numero1 = int(input("Ingresar numero 1: "))
+        self.numero2 = int(input("Ingresar numero 2: "))
+        print("{} + {} = {} ".format(self.numero1,self.numero2,self.numero1+self.numero2))
+
+    def resta(self):
+        self.numero1 = int(input("Ingresar numero 1: "))
+        self.numero2 = int(input("Ingresar numero 2: "))
+        print("{} - {} = {} ".format(self.numero1, self.numero2, self.numero1 - self.numero2))
+
+    def multiplicacion1(self):
+        self.numero1 = int(input("Ingresar numero 1: "))
+        self.numero2 = int(input("Ingresar numero 2: "))
+        print("{} * {} = {} ".format(self.numero1, self.numero2, self.numero1 * self.numero2))
+
+    def division(self):
+        self.numero1 = int(input("Ingresar numero 1: "))
+        self.numero2 = int(input("Ingresar numero 2: "))
+        if self.numero2 == 0:
+            print("No hay división para 0")
+        else:
+            print("{} / {} = {} ".format(self.numero1, self.numero2, self.numero1 / self.numero2))
+
+
+class calEstandar(Calculadora):
+    def __init__(self, numero1=0, numero2=0):
+        super().__init__(numero1, numero2)
+
+    # def multiplicacion2(self):
+    #     self.numero1=int(input("Ingresar numero 1: "))
+    #     self.numero2 = int(input("Ingresar numero 2: "))
+    #     print("{} * {} = {}".format(self.numero1,self.numero2,self.numero1 * self.numero2))
+
+    def exponente(self):
+        self.numero1 = int(input("Ingresar numero 1: "))
+        self.numero2 = int(input("Ingresar numero 2: "))
+        print("{} ** {} = {}".format(self.numero1, self.numero2, self.numero1 ** self.numero2))
+
+    def valorAbsoluto(self, numero=0):
+        self.numero=numero
+        self.numero=int(input("Ingresar numero"))
+        if self.numero<0:
+            print("{} es el numero ingresado, y en absoluto es:{}".format(self.numero,-1*self.numero))
+        else:
+            print("{} es el numero ingresado, y en absoluto es:{}".format(self.numero,self.numero))
+
+
+class calCientifica(Calculadora):
+    pi=3.1416
+    def __init__(self,numero1,numero2):
+        super().__init__(numero1,numero2)
+
+    def circunferencia(self,radio=0):
+        radio=float(input("Ingresar radio:"))
+        print("2 * {} * {} = {}".format(self.pi,radio,((2*self.pi)*radio)))
+
+    def areaCirculo(self,radio=0):
+        radio = float(input("Ingresar radio:"))
+        print("{} * ({} **2) = {}".format(self.pi, radio, self.pi*(radio**2)))
+
+    def areaCuadrado(self,lado=0):
+        lado = float(input("Ingresar lado:"))
+        print("{} * {} = {}".format(lado,lado,lado*lado))
