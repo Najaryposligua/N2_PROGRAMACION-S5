@@ -1,13 +1,176 @@
-from Calculadora import *
+from Calculadora import *from Calculadora import *
+from operaciones_numeros import *
 from Cadena import *
+from tratamiento_listas import *
 
 class MENU():
-    def __init__(self,titulo,opciones=[]):
-        self.titulo=titulo
-        self.opciones=opciones
+    def __init__(self, titulo, opciones=[]):
+        self.titulo = titulo
+        self.opciones = opciones
 
     def menu(self):
         print(self.titulo)
+        for opcion in self.opciones:
+            print(opcion)
+
+        opc = input("Elije opcion [1.....{}]:".format(len(self.opciones)))
+        return opc
+
+salir = False
+
+while not salir:
+    menu1 = MENU("**Menu Principal**", ["1)Calculadora", "2)Operación de Numeros", "3)Tratamientos de Listas", "4)Operaciones de Cadenas", "5)Salir"])
+    opc = menu1.menu()
+    if opc == "1":
+
+        while not salir:
+            menu2 = MENU("**Menu Calculadora**", ["1)Suma", "2)Resta", "3)Multiplicacion", "4)Division", "5)Exponente", "6)Valor Absoluto", "7)Circunferencia", "8)Area Circulo", "9)Area Cuadrado", "10)Salir"])
+            opc2 = menu2.menu()
+            cal = Calculadora(0, 0)
+            cale = calEstandar(0,0)
+            calCi = calCientifica(0, 0)
+            if opc2 == "1":
+                cal.suma()
+            elif opc2 == "2":
+                cal.resta()
+            elif opc2 == "3":
+                cal.multiplicacion1()
+            elif opc2 == "4":
+                cal.division()
+            elif opc2 == "5":
+                cale.exponente()
+            elif opc2 == "6":
+                cale.valorAbsoluto()
+            elif opc2 == "7":
+                calCi.circunferencia()
+            elif opc2 == "8":
+                calCi.areaCirculo()
+            elif opc2 == "9":
+                calCi.areaCuadrado()
+            elif opc2 == "10":
+                print("Regresando al menú principal........")
+                salir = True
+            else:
+                print("Ingreso mal la opcion")
+
+                opc2 = menu2.menu()
+        salir = False
+
+        # modificar aqui la opcion 2
+
+    elif opc == "2":
+        while not salir:
+            menu_op2 = MENU("**Menu Operación Numero**", ["1)Presentar de 1 a n", "2)Sumar los números de 1 a n", "3)Múltiplo de cualquier numero", "4)Presentar los divisores de un numero",
+                            "5)Numero Primo", "6)Factorial de cualquier numero", "7)Fibonacci de una serie de n números", "8)Perfecto", "9)Primos gemelos", "10)Números amigos", "11)Salir"])
+            opc3 = menu_op2.menu()
+            num = Basico(0, 0)
+            num1 = intermedio(0, 0)
+
+            if opc3 == '1':
+                num1.numerosN()
+            elif opc3 == '2':
+                num.sumarNumeros()
+            elif opc3 == '3':
+                num.multiplo()
+            elif opc3 == '4':
+                num.DivisoresNumero()
+            elif opc3 == '5':
+                num.numeroprimo()
+            elif opc3 == '6':
+                num1.factorial()
+            elif opc3 == '7':
+                num1.fibonacci()
+            elif opc3 == '8':
+                num.perfecto()
+            elif opc3 == '9':
+                num1.primosgemelos()
+            elif opc3 == '10':
+                num1.numerosamigos()
+            elif opc3 == "11":
+                print("Regresando al menú principal........")
+                salir = True
+            else:
+                print("Ingreso mal la opcion")
+        salir = False
+
+    elif opc == "3":
+        while not salir:
+            menu3 = MENU("**Menu Tratamiento de Lista**", ["1)Recorrer y presentar los datos", "2)Buscar un valor en una lista", "3)Retornar una lista con los factoriales", "4)Retornar una lista de números primos", "5)Recorrer una lista de diccionario con notas de alumnos",
+                         "6)Insertar un dato en una Lista dada lo Posición", "7)Eliminar todas las ocurrencias en una Lista", "8)Retornar cualquier valor de una lista eliminándolo", "9)Copiar cada elemento de una tupla en una lista", "10)Dar el vuelto a varios clientes", "11)Salir"])
+            opclista = menu3.menu()
+            list = Lista(0,0)
+            if opclista == '1':
+                list.presentarLista()
+            elif opclista == '2':
+                list.buscarLista(0)
+            elif opclista == '3':
+               list.listaFactorial()
+            elif opclista == '4':
+                list.listaPrimo()
+            elif opclista == '5':
+                print('pendiente ')
+            elif opclista == '6':
+                list.insertarLista('',0)
+            elif opclista == '7':
+                list.eliminarLista('')
+            elif opclista == '8':
+                list.retornaValorLista()
+            elif opclista == '9':
+                print('pendiente ')
+            elif opclista == '10':
+                print('pendiente ')
+            elif opclista == "11":
+                 print("Regresando al menú principal........")
+                 salir = True
+            else:
+                print("Ingreso mal la opcion")
+
+        salir = False
+    elif opc == "4":
+        while not salir:
+            menu4 = MENU("Menu Operaciones de Cadena", ["1)Recorrer y presentar los datos de una cadena", "2)Buscar un cáracter en una cadena", "3)Retornar una lista con las posiciones dado un cáracter de la cadena", "4)Retornar una lista de todas las palabras de una cadena",
+                         "5)Retornar una cadena a partir de una lista", "6)Insertar un dato en una cadena dada la Posición", "7)Eliminar todas las ocurrencias en una cadena", "8)Retornar cualquier valor de una lista eliminándolo", "9)Concatenar cualquier valor de una cadena eliminandola", "10)Salir"])
+            opc4 = menu4.menu()
+            if opc4 == "1":
+                cad = Cadena("")
+                cad.recorrerCadena()
+            elif opc4 == "2":
+                cad = Cadena("")
+                cad.buscarCaracter()
+            elif opc4 == "3":
+                cad = Cadena("")
+                cad.listaPosiciones()
+            elif opc4 == "4":
+                cad = Cadena("")
+                cad.listaPalabras()
+            elif opc4 == "5":
+                cad = Cadena("")
+                cad.cadenaLista()
+            elif opc4 == "6":
+                cad = Cadena("")
+                cad.insertarOcurrencia()
+            elif opc4 == "7":
+                cad = Cadena("")
+                cad.eliminarOcurrencia()
+            elif opc4 == "8":
+                cad = Cadena("")
+                cad.retornaValor()
+            elif opc4 == "9":
+                cad = Cadena("")
+                cad.concatenarCadena()
+            elif opc4 == "10":
+                print("Regresando al menú principal....")
+                salir = True
+            else:
+                print("Ingreso mal la opcion")
+                opc4 = menu4.menu()
+        salir = False
+    elif opc == "5":
+        salir = True
+    else:
+        print("Error de ingreso, por favor escoja bien una de las opciones")
+print("FIN")
+
         for opcion in self.opciones:
             print(opcion)
 
