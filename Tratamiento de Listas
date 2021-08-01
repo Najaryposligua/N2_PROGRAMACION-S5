@@ -1,1 +1,205 @@
+from operaciones_numeros import intermedio
 
+class Lista(intermedio):
+    lista = []
+    tupla=()
+   
+    def llenar_lista(self):
+        print('\t Llenar una lista vacia')
+        self.dimension = int(input('Cuantos elementos tendra la lista: '))
+        for i in range(self.dimension):
+            self.lista.append(input('ingrese el {}º elemento: '.format(i+1)))
+
+    def presentarLista(self):
+        self.llenar_lista()
+        print('\tahora recorreremos la lista y mostraremos cada uno de los elementos.....')
+        for i in range(self.lista.__len__()):
+            print('{}º elemento: {}'.format((i+1), self.lista[i]))
+
+    def buscarLista(self, valor):
+        if self.lista.__len__() != 0:
+            usar = str(input(
+                '\t ya esxiste una lista en el sistema.... la lista es : \n\t{} \n ¿Desea usar esta lista ? s=si - n=no : '.format(self.lista)))
+            if usar.lower() == 's':
+                buscado = str(input('que dato esta buscando: '))
+                if buscado in self.lista:
+                    print('\tel dato "{}", esta en la posicion {} de la lista\n\t{}'.format(
+                        buscado, (self.lista.index(buscado)+1), self.lista))
+                else:
+                    print('\tLo sentimos, el dato "{}", no esta en la lista \n\t{}'.format(
+                        buscado, self.lista))
+            else:
+                self.llenar_lista()
+                buscado = str(input('que dato esta buscando: '))
+                if buscado in self.lista:
+                    print('\tel dato "{}", esta en la posicion {} de la lista\n\t{}'.format(
+                        buscado, (self.lista.index(buscado)+1), self.lista))
+                else:
+                    print('\tLo sentimos, el dato "{}", no esta en la lista \n\t{}'.format(
+                        buscado, self.lista))
+        else:
+            self.llenar_lista()
+            buscado = str(input('que dato esta buscando: '))
+            if buscado in self.lista:
+                print('\tel dato "{}", esta en la posicion {} de la lista\n\t{}'.format(
+                    buscado, (self.lista.index(buscado)+1), self.lista))
+            else:
+                print('\tLo sentimos, el dato "{}", no esta en la lista \n\t{}'.format(
+                    buscado, self.lista))
+
+    def insertarLista(self, valor, posicion):
+        lista1 = []
+        for i in self.lista:
+            lista1.append(i)
+
+        if self.lista.__len__() != 0:
+            usar = str(input(
+                '\t ya esxiste una lista en el sistema.... la lista es : \n\t{} \n ¿Desea usar esta lista ? s=si - n=no : '.format(self.lista)))
+            if usar.lower() == 's':
+                valor = str(input('dato que desea agregar: '))
+                posicion = (input('en que posicion: '))
+                if posicion == '':
+                    posicion = 0
+                posicion = int(posicion)
+                if posicion >= self.lista.__len__() or posicion == 0:
+                    print(
+                        '\tla posicion ingresada no es valida, se agregara el dato al final de la lista')
+                    lista1.append(valor)
+                    print('\tlista antigua: {}\n\tlista nueva: {}'.format(
+                        self.lista, lista1))
+                else:
+                    lista1.insert(posicion-1, valor)
+                    print('\tlista antigua: {}\n\tlista nueva: {}'.format(
+                        self.lista, lista1))
+            else:
+                self.llenar_lista()
+                valor = str(input('dato que desea agregar: '))
+                posicion = (input('en que posicion: '))
+                if posicion == '':
+                    posicion = 0
+                posicion = int(posicion)
+                if posicion >= self.lista.__len__() or posicion == 0:
+                    print(
+                        '\tla posicion ingresada no es valida, se agregara el dato al final de la lista')
+                    lista1.append(valor)
+                    print('\tlista antigua: {}\n\tlista nueva: {}'.format(
+                        self.lista, lista1))
+                else:
+                    lista1.insert(posicion-1, valor)
+                    print('\tlista antigua: {}\n\tlista nueva: {}'.format(
+                        self.lista, lista1))
+        else:
+            self.llenar_lista()
+            valor = str(input('dato que desea agregar: '))
+            posicion = (input('en que posicion: '))
+            if posicion == '':
+                posicion = 0
+            posicion = int(posicion)
+            if posicion >= self.lista.__len__() or posicion == 0:
+                print(
+                    '\tla posicion ingresada no es valida, se agregara el dato al final de la lista')
+                lista1.append(valor)
+                print('\tlista antigua: {}\n\tlista nueva: {}'.format(
+                    self.lista, lista1))
+            else:
+                lista1.insert(posicion-1, valor)
+                print('\tlista antigua: {}\n\tlista nueva: {}'.format(self.lista, lista1))
+
+    def eliminarLista(self, valor):
+        
+            if self.lista.__len__() != 0:
+                usar = str(input(
+                    '\t ya esxiste una lista en el sistema.... la lista es : \n\t{} \n ¿Desea usar esta lista ? s=si - n=no : '.format(self.lista)))
+                if usar.lower()=='s':
+                    valor=str(input('dato que desea eliminar: '))
+                    if valor in self.lista:
+                        print('\tanterior: {}'.format(self.lista))
+                        self.lista = list(filter((valor).__ne__, self.lista))
+                        print('\tnuevo: {}'.format(self.lista))
+                    else:
+                        print('el dato no esta en la lista')  
+                else:
+                    self.llenar_lista()
+                    valor=str(input('dato que desea eliminar: '))
+                    if valor in self.lista:
+                        print('\tanterior: {}'.format(self.lista))
+                        self.lista = list(filter((valor).__ne__, self.lista))
+                        print('\tnuevo: {}'.format(self.lista))
+                    else:
+                        print('el dato no esta en la lista')  
+            else:
+                self.llenar_lista()
+                valor=str(input('dato que desea eliminar: '))
+                if valor in self.lista:
+                    print('\tanterior: {}'.format(self.lista))
+                    self.lista = list(filter((valor).__ne__, self.lista))
+                    print('\tnuevo: {}'.format(self.lista))
+                else:
+                    print('el dato no esta en la lista')  
+                    
+    def listaPrimo(self, num=0):
+        lista=[]
+        contador=0
+        num=int(input('\nNumeros primos hasta el:'))
+        for i in range(2,num+1):
+            
+            for j in range(1,i+1):
+                if i%j==0:
+                    contador = contador+1
+            if contador ==2:
+                lista.append(i)
+            contador=0  
+        print(lista)
+                  
+
+    def listaFactorial(self):
+        
+        limite=int(input('\tMostrar factoriales hasta: '))
+        resultado=1
+        lista=[]
+        for i in range(1,limite+1):
+            for j in range(i,0,-1):
+                resultado=resultado *j
+            lista.append(resultado)
+            resultado=1  
+        for i in range(1, lista.__len__()):
+            print('{}! = {}'.format(i+1,lista[i]))
+        
+    def retornaValorLista(self,posicion=0):
+        
+        if self.lista.__len__() != 0:
+            usar = str(input(
+                '\t ya esxiste una lista en el sistema.... la lista es : \n\t{} \n ¿Desea usar esta lista ? s=si - n=no : '.format(self.lista)))
+            if usar.lower() == 's':
+                posicion=int(input('ingrese la posicion del valor a eliminar: '))
+                if posicion>self.lista.__len__():
+                    print('la posicion no existe')
+                else:
+                    print('eliminar: {} de la posicion {}'.format(self.lista[posicion],posicion))
+                    print('\tanterior: {}'.format(self.lista))
+                    self.lista.pop(posicion-1)
+                    print('\tnuevo: {}'.format(self.lista))
+            else:
+                self.llenar_lista()
+                posicion=int(input('ingrese la posicion del valor a eliminar: '))
+                if posicion>self.lista.__len__():
+                    print('la posicion no existe')
+                else:
+                    print('eliminar: {} de la posicion {}'.format(self.lista[posicion],posicion))
+                    print('\tanterior: {}'.format(self.lista))
+                    self.lista.pop(posicion-1)
+                    print('\tnuevo: {}'.format(self.lista))
+        else:
+            self.llenar_lista()
+            posicion=int(input('ingrese la posicion del valor a eliminar: '))
+            if posicion>self.lista.__len__():
+                print('la posicion no existe')
+            else:
+                print('eliminar: {} de la posicion {}'.format(self.lista[posicion],posicion))
+                print('\tanterior: {}'.format(self.lista))
+                self.lista.pop(posicion-1)
+                print('\tnuevo: {}'.format(self.lista))
+        
+    
+      
+            
