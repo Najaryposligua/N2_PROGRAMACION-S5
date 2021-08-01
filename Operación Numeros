@@ -1,1 +1,144 @@
+class Basico:
+    def __init__(self, numero1=0, numero2=0):
+        self.numero1 = numero1
+        self.numero2 = numero2
 
+    def sumarNumeros(self):
+        suma = 0
+        lista = []
+        print('-'*5, 'SUMAR LOS NUMEROS DESDE 1 HASTA ', '-'*5)
+        self.numero1 = int(input("Ingresa el numero : "))
+
+        for i in range(self.numero1):
+            lista.append(i+1)
+        for i in lista:
+            suma = suma+i
+        print('\tla suma de\n\t{}\n\t es: {} '.format(lista, suma))
+
+    def multiplo(self):
+        print('-'*5, 'MOSTRAR LOS MULTIPLOS DE ', '-'*5)
+        self.numero1 = int(input("Ingresa el numero : "))
+        for i in range(5):
+            print((i+1)*self.numero1)
+
+    def DivisoresNumero(self):
+        print('-'*5, 'MOSTRAR LOS DIVISORES DE ', '-'*5)
+        self.numero1 = int(input("Ingresa el numero : "))
+        for i in range(self.numero1):
+            if self.numero1 % (i+1) == 0:
+                print(i+1)
+
+    def numeroprimo(self):
+        print('-'*5, 'VERIFICAR SI UN NUMERO ES PRIMO ', '-'*5)
+        self.numero1 = int(input("Ingresa el numero : "))
+        contador = 0
+        for i in range(self.numero1):
+            if self.numero1 % (i+1) == 0:
+                contador = contador+1
+        if contador == 2:
+            print('\t el numero {} si es un numero primo'.format(self.numero1))
+        else:
+            print('\t el numero {} no es un numero primo'.format(self.numero1))
+
+    def perfecto(self):
+        print('-'*5, 'VERIFICAR SI UN NUMERO ES PERFECTO ', '-'*5)
+        self.numero1 = int(input("ingrese el numero: "))
+        lista = []
+        for i in range(self.numero1-1):
+            if self.numero1 % (i+1) == 0:
+                lista.append(i+1)
+        if sum(lista) == self.numero1:
+            print('\tel numero {} si es perfecto, la suma de sus divisores es {} '.format(
+                self.numero1, sum(lista)))
+        else:
+            print('\tel numero {} no es perfecto, la suma de sus divisores es {} '.format(
+                self.numero1, sum(lista)))
+
+    
+class intermedio(Basico):
+    def __init__(self,numero1,numero2):
+        super().__init__(numero1,numero2)
+        
+    def numerosN(self):
+        print('-'*5, 'MOSTRAR NUMEROS DESDE 1 HASTA ', '-'*5)
+        self.numero1 = int(input("Ingresa el numero : "))
+        for i in range(self.numero1):
+            print('{}'.format(i+1))
+        print('\n')
+    
+    def factorial(self):
+        suma = 1
+        lista = []
+        print('-'*5, 'FACTORIAL DE', '-'*5)
+        self.numero1 = int(input("Ingresa el numero : "))
+        for i in range(self.numero1):
+            lista.append(i+1)
+        for i in lista:
+            suma = suma*i
+        print('\t el factorial de {}\n\t{}\n\t es: {} '.format(
+            self.numero1, lista, suma))
+    
+    def fibonacci(self):
+        print('-'*5, 'FIBONACCI CON N NUMEROS', '-'*5)
+        self.numero1 = int(input("cuantos numeros tendra la lista  : "))
+        a = 0
+        b = 1
+        c = 0
+        for i in range(self.numero1):
+            print(c)
+            a = b
+            b = c
+            c = a+b
+    
+    def primosgemelos(self):
+        contador=0
+        print('-'*5, 'VERIFICAR SI DOS NUMEROS SON PRIMOS GEMELOS  ', '-'*5)
+        self.numero1 = int(input("ingrese el 1º numero: "))
+        self.numero2 = int(input("ingrese el 2º numero: "))
+        if self.numero2 == self.numero1:
+            print('\tlos numeros deben ser diferentes ')
+        else:
+            if self.numero1-self.numero2==2 or self.numero2-self.numero1==2:     
+                    for i in range(self.numero1):
+                        if self.numero1 % (i+1) == 0:
+                         contador = contador+1
+                    if contador == 2:
+                        print('\t el numero {} si es un numero primo'.format(self.numero1))
+                        contador=0
+                        for i in range(self.numero2):
+                            if self.numero2 % (i+1) == 0:
+                              contador = contador+1
+                        if contador == 2:
+                           print('\t el numero {} si es un numero primo\n\t los numeros si son primos gemelos'.format(self.numero2))
+                        else:
+                           print('\t el numero {} no es un numero primo\n\t los numeros no son primos gemelos '.format(self.numero2))
+
+
+                    else:
+                       print('\t el numero {} no es un numero primo\n\t los numeros no son primos gemelos '.format(self.numero1))
+            else:
+                print('\tla diferencia entre {} y {} no es 2 \n\t los numeros no son primos gemelos'. format(self.numero1,self.numero2))
+    
+    def numerosamigos(self):
+        lista=[]
+        print('-'*5, 'VERIFICAR SI DOS NUMEROS SON AMIGOS  ', '-'*5)
+        self.numero1 = int(input("ingrese el 1º numero: "))
+        self.numero2 = int(input("ingrese el 2º numero: "))
+        if self.numero2 == self.numero1:
+            print('\tlos numeros deben ser diferentes ')
+        else:
+            for i in range(self.numero1-1):
+                if self.numero1 % (i+1) == 0:
+                 lista.append(i+1)
+            if sum(lista)==self.numero2:
+                lista=[]
+                for i in range(self.numero2-1):
+                    if self.numero2 % (i+1) == 0:
+                      lista.append(i+1)
+                if sum(lista)==self.numero1:
+                     print('\tlos numeros {} y {} , si son amigos '.format(self.numero1,self.numero2)) 
+                else:
+                     print('\tlos numeros {} y {} , no son amigos '.format(self.numero1,self.numero2)) 
+               
+            else:
+                print('\tlos numeros {} y {} , no son amigos '.format(self.numero1,self.numero2)) 
