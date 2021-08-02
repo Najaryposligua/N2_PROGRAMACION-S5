@@ -199,7 +199,25 @@ class Lista(intermedio):
                 print('\tanterior: {}'.format(self.lista))
                 self.lista.pop(posicion-1)
                 print('\tnuevo: {}'.format(self.lista))
-        
-    
-      
-            
+
+    def copiarTuplaLista(tupla):
+        lista = []
+        valor = input("Ingrese una palabra, para finaizar use el punto(.) \n")
+        while valor != ".":
+            lista.append(valor)
+            valor = input("Ingrese una palabra, para finaizar use el punto(.) \n")
+            tupla = tuple(lista)
+            lista = list(tupla)
+        print(tupla)
+        print("Copiamos la tupla en una lista y quedó: {}".format(lista))
+
+    def vueltoLista(listaClientesDiccionario):
+        lista = []
+        clientes = int(input("Cuantos clientes va a ingresar: "))
+        for cup in range(clientes):
+            "nombre{}".format(cup)
+            nombre = input("Ingrese el nombre del cliente: ")
+            cupo = float(input("¿Cuánto es el vuelto del cliente, ingresarlo {}?: ".format(nombre)))
+            listaClientesDiccionario = {"Nombre": nombre, "Vuelto": cupo}
+            lista.append(listaClientesDiccionario)
+        print("La lista de los cliente son: {}".format(lista))
