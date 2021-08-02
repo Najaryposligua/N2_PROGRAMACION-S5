@@ -106,7 +106,7 @@ while not salir:
             elif opclista == '4':
                 list.listaPrimo()
             elif opclista == '5':
-                print('pendiente ')
+                list..listaNotas()
             elif opclista == '6':
                 list.insertarLista('',0)
             elif opclista == '7':
