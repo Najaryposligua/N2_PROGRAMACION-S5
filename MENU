@@ -13,6 +13,7 @@ class MENU():
         for opcion in self.opciones:
             print(opcion)
 
+
         opc = input("Elije opcion [1.....{}]:".format(len(self.opciones)))
         return opc
 
