@@ -1,1 +1,98 @@
+class Cadena:
+    def __init__(self, cadena=""):
+        self.cadena=cadena
+        self.cadena = input("Ingresar cadena:")
 
+    def recorrerCadena(self):
+        print('-' * 5, 'RECORRER Y PRESENTAR LOS DATOS DE UNA CADENA ', '-' * 5)
+        print("La cadena es: '{}'y cuenta con:{} caracteres".format(self.cadena, len(self.cadena)))
+
+    def buscarCaracter(self, buscado=0):
+        print('-' * 5, 'BUSCAR UN CARACTER EN UNA CADENA ', '-' * 5)
+        self.buscado= buscado
+        con=0
+        self.buscado=input("Ingresar el caracter a ser buscado")
+        for i in range(len(self.cadena)):
+            if (self.cadena[i] == self.buscado):
+                con += 1
+                print("En la posicion: " + str(i))
+        print("Existe solo: " + str(con) + " veces el caracter:" + self.buscado)
+
+    def listaPosiciones(self, caracter=""):
+        print('-' * 5, 'RETORNAR UNA LISTA CON LA POSICION DADA UN CARACTER DE LA CADENA ', '-' * 5)
+        self.caracter= caracter
+        self.caracter=input("Ingrese el caracter a buscar en lista: ")
+        puesto=[]
+        for j, l in enumerate(self.cadena):
+            if self.cadena[j]==self.caracter:
+                puesto.append(j)
+        print("El caracter:{}  - Se encuentra en el puesto: {}".format(self.caracter,puesto))
+
+    def listaPalabras(self,pal=""):
+        print('-' * 5, 'RETORNAR UNA LISTA DE PALABRAS ', '-' * 5)
+        self.pal=pal
+        self.pal = self.cadena.split()
+        print(self.pal)
+        print(len(self.pal))
+
+    def cadenaLista(self):
+        print('-' * 5, 'RETORNAR UNA CADENA A PARTIR DE UNA LISTA ', '-' * 5)
+        self.pal = self.cadena.split()
+        Palabras=str(input("Si desea ingresar mas palabra hagalo, caso contrario para finaizar ingrese un puntito\n"))
+        while Palabras!=".":
+            self.pal.append(Palabras)
+            Palabras=str(input("Si desea ingresar mas palabra hagalo, caso contrario para finaizar ingrese un puntito\n"))
+        print("La Lista seria", (self.pal))
+        Cade=" ".join(self.pal)
+        print("La Cadena seria\n"+ str(Cade))
+
+    def insertarDato(self, buscado, posicion):
+        print('-' * 5, 'INSERTAR UN DATO EN UNA CADENA DADA LA POSICION ', '-' * 5)
+        self.dato = self.cadena.split()
+        print(self.dato, "Esta cadena tiene {} posiciones".format(len(self.dato)))
+        buscado = input("Ingresar dato a ser aumentado en la cadena: ")
+        posicion = int(input("Ingresar la posicion a agregar el dado en la cadena: "))
+        self.dato.insert(posicion, buscado)
+        print(self.dato)
+
+    def eliminarOcurrencias(self, buscado):
+        print('-' * 5, 'ELIMINAR LAS OCURRENCIAS DE UNA CADENA ', '-' * 5)
+        import re
+        Lista1 = []
+        while buscado != ".":
+            Lista1.append(buscado)
+            buscado = str(input("Ingrese una palabra, al finaizar use el punto\n"))
+        print("La Lista seria\n" + str(Lista1))
+        buscado1 = str(input("Ingrese la concurrencia que desea eliminar de la lista\n"))
+        oncurrencia = len(re.findall(str(buscado1), str(Lista1)))
+        print('La Concurrencia de su caracter es:', oncurrencia)
+        Cad1 = " ".join(Lista1)
+        print("La Cadena seria\n" + str(Cad1))
+        Cad1 = ''.join(x for x in Cad1 if x not in buscado1)
+        print("La Cadena quedaria como\n" + str(Cad1))
+
+    def retornaValor(self, posicion):
+        print('-' * 5, 'RETORNAR EL VALOR DE UNA CADENA ', '-' * 5)
+        Lista5 = []
+        Lista6 = []
+        while posicion != ".":
+            Lista5.append(posicion)
+            posicion = str(input("Ingrese una palabra, al finaizar use el punto\n"))
+        print("La Lista seria\n" + str(Lista5))
+        lugar = int(input("Que posicion de la lista desea eliminar\n "))
+        Lista6.append(lugar)
+        print("El Elemento borrado es {}".format(Lista6))
+        Retorno = Lista5[lugar]
+        Lista5.pop(lugar)
+        print("El elemento a eliminar es {}\n ".format(Retorno))
+        print("La lista seria {}\n".format(Lista5))
+
+    def concatenarCadena(self, dato):
+        print('-' * 5, 'CONCATENAR CADENA ', '-' * 5)
+        Lista4 = []
+        while dato != ".":
+            Lista4.append(dato)
+            dato = str(input("Ingrese una palabra, al finaizar use el punto\n"))
+        ##print("La Lista seria\n"+ str(Lista))
+        Cad = " ".join(Lista4)
+        print("La Cadena seria\n" + str(Cad))
