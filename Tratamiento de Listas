@@ -46,6 +46,20 @@ class Lista(intermedio):
             else:
                 print('\tLo sentimos, el dato "{}", no esta en la lista \n\t{}'.format(
                     buscado, self.lista))
+                    
+    def listaNotas(self,listaNotasDiccionario=0):
+        listafinal = []
+        cant=int(input("Cuantos alumnos va a ingresar: "))
+        for al in range(cant):
+            finnota = []
+            nomalumno= input("Ingrese el nombre del alumno {}: ".format(al))
+            notas= int(input("¿Cuantas notas va a ingresar por el estudiante {}?: ".format(nomalumno)))
+            for nota in range(notas):
+                no= round(float(input("Nota {}: ".format(nota))),2)
+                finnota.append(no)
+            listaNotasDiccionario = {"Nombre": nomalumno, "Notas":finnota}
+            listafinal.append(listaNotasDiccionario)
+        print( "La lista de los cliente son: {}".format(listafinal))
 
     def insertarLista(self, valor, posicion):
         lista1 = []
